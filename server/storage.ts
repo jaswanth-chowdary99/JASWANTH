@@ -283,7 +283,17 @@ export class MemStorage implements IStorage {
 
   async createExercise(insertExercise: InsertExercise): Promise<Exercise> {
     const id = randomUUID();
-    const exercise: Exercise = { ...insertExercise, id };
+    const exercise: Exercise = { 
+      id,
+      name: insertExercise.name,
+      description: insertExercise.description || null,
+      instructions: insertExercise.instructions,
+      muscleGroups: insertExercise.muscleGroups,
+      equipment: insertExercise.equipment,
+      difficulty: insertExercise.difficulty,
+      category: insertExercise.category,
+      videoUrl: insertExercise.videoUrl || null
+    };
     this.exercises.set(id, exercise);
     return exercise;
   }
@@ -302,7 +312,15 @@ export class MemStorage implements IStorage {
 
   async createWorkout(insertWorkout: InsertWorkout): Promise<Workout> {
     const id = randomUUID();
-    const workout: Workout = { ...insertWorkout, id };
+    const workout: Workout = { 
+      id,
+      name: insertWorkout.name,
+      description: insertWorkout.description || null,
+      category: insertWorkout.category,
+      duration: insertWorkout.duration,
+      difficulty: insertWorkout.difficulty,
+      exercises: insertWorkout.exercises
+    };
     this.workouts.set(id, workout);
     return workout;
   }
@@ -317,7 +335,15 @@ export class MemStorage implements IStorage {
 
   async createProgress(insertProgress: InsertUserProgress): Promise<UserProgress> {
     const id = randomUUID();
-    const progress: UserProgress = { ...insertProgress, id };
+    const progress: UserProgress = { 
+      ...insertProgress, 
+      id,
+      sets: insertProgress.sets || null,
+      reps: insertProgress.reps || null,
+      weight: insertProgress.weight || null,
+      duration: insertProgress.duration || null,
+      notes: insertProgress.notes || null
+    };
     this.userProgress.set(id, progress);
     return progress;
   }

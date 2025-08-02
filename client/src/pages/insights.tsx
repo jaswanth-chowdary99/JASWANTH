@@ -16,7 +16,7 @@ export default function Insights() {
   });
 
   const weeklyProgress = userStats 
-    ? Math.round((userStats.weeklyProgress / userStats.weeklyGoal) * 100) 
+    ? Math.round(((userStats.weeklyProgress || 0) / (userStats.weeklyGoal || 1)) * 100) 
     : 75;
 
   const thisWeekWorkouts = progressData.filter(p => {

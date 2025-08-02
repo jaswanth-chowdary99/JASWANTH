@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function Header() {
   return (
@@ -9,7 +10,10 @@ export default function Header() {
           <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
             <span className="text-white text-sm font-bold">💪</span>
           </div>
-          <h1 className="text-lg font-bold text-gray-900">Bodbot</h1>
+          <div className="flex items-center space-x-2">
+            <h1 className="text-lg font-bold text-gray-900">Bodbot</h1>
+            <Badge variant="success" className="text-xs">FREE</Badge>
+          </div>
         </div>
         <Button variant="ghost" size="sm" className="p-2 rounded-lg hover:bg-gray-100">
           <Menu className="h-5 w-5 text-gray-600" />

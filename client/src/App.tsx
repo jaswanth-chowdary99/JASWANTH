@@ -9,14 +9,18 @@ import ExerciseLibrary from "@/pages/exercise-library";
 import Workout from "@/pages/workout";
 import Insights from "@/pages/insights";
 import Settings from "@/pages/settings";
+import Nutrition from "@/pages/nutrition";
+import Welcome from "@/pages/welcome";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/welcome" component={Welcome} />
       <Route path="/exercises" component={ExerciseLibrary} />
       <Route path="/workout/:id" component={Workout} />
       <Route path="/insights" component={Insights} />
+      <Route path="/nutrition" component={Nutrition} />
       <Route path="/settings" component={Settings} />
       <Route component={NotFound} />
     </Switch>

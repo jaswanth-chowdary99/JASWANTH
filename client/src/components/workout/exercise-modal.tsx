@@ -21,7 +21,7 @@ export default function ExerciseModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md mx-auto h-full max-h-screen overflow-y-auto rounded-t-3xl border-0 p-0">
+      <DialogContent className="max-w-md mx-auto h-full max-h-screen overflow-y-auto rounded-t-3xl border-0 p-0" aria-describedby="exercise-description">
         <DialogHeader className="sticky top-0 bg-white border-b border-gray-100 p-4 flex-row items-center justify-between space-y-0">
           <DialogTitle className="text-lg font-semibold text-gray-900">
             {exercise.name}
@@ -37,6 +37,9 @@ export default function ExerciseModal({
         </DialogHeader>
         
         <div className="p-4">
+          <div id="exercise-description" className="sr-only">
+            Exercise details and instructions for {exercise.name}
+          </div>
           {/* Exercise Video/Image Placeholder */}
           <div className="w-full h-48 bg-gray-100 rounded-2xl mb-6 flex items-center justify-center">
             <div className="text-center">

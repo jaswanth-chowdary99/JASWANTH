@@ -231,8 +231,8 @@ export default function Settings() {
                 A completely free fitness training app with workout routines, 
                 exercise library, and progress tracking.
               </p>
-              <p className="text-xs text-gray-500">
-                No login required • No subscriptions • Always free
+              <p className="text-xs text-success-600 font-medium">
+                ✓ No login required • No subscriptions • Always free
               </p>
             </div>
           </CardContent>

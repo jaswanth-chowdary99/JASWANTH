@@ -146,7 +146,7 @@ export default function WorkoutPage() {
           <div className="flex items-center space-x-4 text-sm text-gray-500">
             <span>Exercise {currentExerciseIndex + 1} of {workout.exercises.length}</span>
             <span>•</span>
-            <span>Set {currentSet} of {currentWorkoutExercise.sets}</span>
+            <span>Set {currentSet} of {currentWorkoutExercise?.sets || 1}</span>
           </div>
         </div>
 
@@ -162,15 +162,15 @@ export default function WorkoutPage() {
             
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">{currentWorkoutExercise.sets}</div>
+                <div className="text-2xl font-bold text-gray-900">{currentWorkoutExercise?.sets || 3}</div>
                 <div className="text-xs text-gray-500">Sets</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">{currentWorkoutExercise.reps}</div>
+                <div className="text-2xl font-bold text-gray-900">{currentWorkoutExercise?.reps || "12"}</div>
                 <div className="text-xs text-gray-500">Reps</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">{currentWorkoutExercise.restSeconds}s</div>
+                <div className="text-2xl font-bold text-gray-900">{currentWorkoutExercise?.restSeconds || 60}s</div>
                 <div className="text-xs text-gray-500">Rest</div>
               </div>
             </div>

@@ -89,7 +89,7 @@ export default function Home() {
   };
 
   const weeklyProgress = userStats 
-    ? Math.round((userStats.weeklyProgress / userStats.weeklyGoal) * 100) 
+    ? Math.round(((userStats.weeklyProgress || 0) / (userStats.weeklyGoal || 1)) * 100) 
     : 75;
 
   return (
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="max-w-md mx-auto px-4 py-8">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold mb-2">Ready to Train?</h2>
-            <p className="text-blue-100 text-sm">Choose your workout and let's get started</p>
+            <p className="text-blue-100 text-sm">100% free fitness training • No subscriptions ever</p>
           </div>
           
           {/* Today's Workout Card */}
