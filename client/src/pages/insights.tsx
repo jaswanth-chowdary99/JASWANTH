@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Header from "@/components/layout/header";
 import BottomNavigation from "@/components/layout/bottom-navigation";
+import ProgressChart from "@/components/insights/progress-chart";
 import ProgressRing from "@/components/progress/progress-ring";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrendingUp, Calendar, Award, Target } from "lucide-react";

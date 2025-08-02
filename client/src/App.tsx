@@ -11,6 +11,8 @@ import Insights from "@/pages/insights";
 import Settings from "@/pages/settings";
 import Nutrition from "@/pages/nutrition";
 import Welcome from "@/pages/welcome";
+import CustomWorkout from "@/pages/custom-workout";
+import WorkoutHistory from "@/pages/workout-history";
 
 function Router() {
   return (
@@ -21,6 +23,8 @@ function Router() {
       <Route path="/workout/:id" component={Workout} />
       <Route path="/insights" component={Insights} />
       <Route path="/nutrition" component={Nutrition} />
+      <Route path="/custom-workout" component={CustomWorkout} />
+      <Route path="/history" component={WorkoutHistory} />
       <Route path="/settings" component={Settings} />
       <Route component={NotFound} />
     </Switch>

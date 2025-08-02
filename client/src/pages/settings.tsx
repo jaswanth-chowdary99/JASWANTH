@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Header from "@/components/layout/header";
 import BottomNavigation from "@/components/layout/bottom-navigation";
+import UserPreferencesComponent from "@/components/settings/user-preferences";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -11,13 +12,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Settings as SettingsIcon, User, Dumbbell, Bell, Target } from "lucide-react";
-import type { UserPreferences, UserStats } from "@shared/schema";
+import type { UserPreferences as UserPreferencesType, UserStats } from "@shared/schema";
 
 export default function Settings() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const { data: preferences } = useQuery<UserPreferences>({
+  const { data: preferences } = useQuery<UserPreferencesType>({
     queryKey: ["/api/preferences"],
   });
 
@@ -28,7 +29,7 @@ export default function Settings() {
   const [localPreferences, setLocalPreferences] = useState(preferences);
 
   const updatePreferencesMutation = useMutation({
-    mutationFn: async (updates: Partial<UserPreferences>) => {
+    mutationFn: async (updates: Partial<UserPreferencesType>) => {
       return apiRequest("PUT", "/api/preferences", updates);
     },
     onSuccess: () => {
@@ -237,6 +238,9 @@ export default function Settings() {
             </div>
           </CardContent>
         </Card>
+
+        {/* User Preferences */}
+        <UserPreferencesComponent />
       </div>
 
       <BottomNavigation />

@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import BottomNavigation from "@/components/layout/bottom-navigation";
+import QuickActions from "@/components/home/quick-actions";
+import AchievementBadges from "@/components/home/achievement-badges";
 import ExerciseCard from "@/components/workout/exercise-card";
 import ExerciseModal from "@/components/workout/exercise-modal";
 import Timer from "@/components/workout/timer";
@@ -178,6 +180,19 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Quick Actions Section */}
+      <section className="max-w-md mx-auto px-4 py-6">
+        <QuickActions />
+      </section>
+
+      {/* Achievement Badges Section */}
+      <section className="max-w-md mx-auto px-4 py-6">
+        <AchievementBadges 
+          workoutCount={userStats?.totalWorkouts || 0}
+          streak={userStats?.currentStreak || 0}
+        />
       </section>
 
       {/* Timer Component */}
